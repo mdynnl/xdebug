@@ -1,5 +1,5 @@
 /* This is a generated file, edit the .stub.php file instead.
- * Stub hash: abb3d6c16210384b6ac37292e3e46713125c8b18 */
+ * Stub hash: 3de3df699a5e7aa310c5fb7054462c7403e6cba0 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_xdebug_break, 0, 0, _IS_BOOL, 0)
 ZEND_END_ARG_INFO()
@@ -50,6 +50,10 @@ ZEND_END_ARG_INFO()
 #define arginfo_xdebug_get_headers arginfo_xdebug_get_code_coverage
 
 #define arginfo_xdebug_get_monitored_functions arginfo_xdebug_get_code_coverage
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_xdebug_set_function_name, 0, 0, 1)
+	ZEND_ARG_TYPE_INFO(0, name, IS_STRING, 0)
+ZEND_END_ARG_INFO()
 
 #define arginfo_xdebug_get_profiler_filename arginfo_xdebug_dump_superglobals
 
@@ -140,6 +144,7 @@ ZEND_FUNCTION(xdebug_get_gc_total_collected_roots);
 ZEND_FUNCTION(xdebug_get_gcstats_filename);
 ZEND_FUNCTION(xdebug_get_headers);
 ZEND_FUNCTION(xdebug_get_monitored_functions);
+ZEND_FUNCTION(xdebug_set_function_name);
 ZEND_FUNCTION(xdebug_get_profiler_filename);
 ZEND_FUNCTION(xdebug_get_stack_depth);
 ZEND_FUNCTION(xdebug_get_tracefile_name);
@@ -184,6 +189,7 @@ static const zend_function_entry ext_functions[] = {
 	ZEND_FE(xdebug_get_gcstats_filename, arginfo_xdebug_get_gcstats_filename)
 	ZEND_FE(xdebug_get_headers, arginfo_xdebug_get_headers)
 	ZEND_FE(xdebug_get_monitored_functions, arginfo_xdebug_get_monitored_functions)
+	ZEND_FE(xdebug_set_function_name, arginfo_xdebug_set_function_name)
 	ZEND_FE(xdebug_get_profiler_filename, arginfo_xdebug_get_profiler_filename)
 	ZEND_FE(xdebug_get_stack_depth, arginfo_xdebug_get_stack_depth)
 	ZEND_FE(xdebug_get_tracefile_name, arginfo_xdebug_get_tracefile_name)

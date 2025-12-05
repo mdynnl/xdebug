@@ -543,6 +543,18 @@ void xdebug_profiler_free_function_details(function_stack_entry *fse)
 	}
 }
 
+void xdebug_profiler_set_parent_function_details(char *name, size_t name_len)
+{
+	xdebug_vector *stack = XG_BASE(stack);
+	function_stack_entry *fse = xdebug_vector_element_get(stack, stack->count - 2);
+
+	if (fse->profiler.function) {
+		zend_string_release(fse->profiler.function);
+	}
+
+	fse->profiler.function = zend_string_init(name, name_len, 0);
+}
+
 /* Returns a *pointer* to the current profile filename, if active. NULL
  * otherwise. Calling function is responsible for duplicating immediately */
 char *xdebug_get_profiler_filename()
@@ -563,4 +575,16 @@ PHP_FUNCTION(xdebug_get_profiler_filename)
 	}
 
 	RETURN_STRING(filename);
+}
+
+PHP_FUNCTION(xdebug_set_function_name)
+{
+	char *name = NULL;
+	size_t name_len = 0;
+
+	if (zend_parse_parameters(ZEND_NUM_ARGS(), "s", &name, &name_len) == FAILURE) {
+		return;
+	}
+
+	xdebug_profiler_set_parent_function_details(name, name_len);
 }

@@ -108,6 +108,12 @@ function xdebug_get_monitored_functions(): array {}
 
 /* -----------------------------------------------------------------------*/
 
+/* Sets the profile function name */
+/** @return void */
+function xdebug_set_function_name(string $name) {}
+
+/* -----------------------------------------------------------------------*/
+
 /* Returns the profile information filename */
 /** @return mixed */
 function xdebug_get_profiler_filename() {}

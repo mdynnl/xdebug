@@ -70,4 +70,5 @@ void xdebug_profile_call_entry_dtor(void *dummy, void *elem);
 char *xdebug_get_profiler_filename(void);
 
 PHP_FUNCTION(xdebug_get_profiler_filename);
+PHP_FUNCTION(xdebug_set_function_name);
 #endif
